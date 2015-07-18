@@ -8,6 +8,9 @@
 
 import UIKit
 import CoreData
+import CoreLocation
+import HealthKit
+
 
 class IBNewRunViewController: UIViewController {
 
@@ -20,6 +23,28 @@ class IBNewRunViewController: UIViewController {
     
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
+    
+    
+    var seconds = 0.0
+    var distance = 0.0
+    
+    lazy var locationManager : CLLocationManager = {
+        var _locationManager = CLLocationManager()
+        _locationManager.delegate = self
+        _locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        _locationManager.activityType = .Fitness
+        
+        //Movement threshold for new events
+        _locationManager.distanceFilter = 10.0
+        
+        return _locationManager
+        
+    }()
+    
+    lazy var locations = [CLLocation]()
+    lazy var timer = NSTimer()
+    
+    
     
     
     override func viewDidLoad() {
@@ -48,20 +73,24 @@ class IBNewRunViewController: UIViewController {
         
         switchButtonsWithStartState(true)
         
-        timeLabel.hidden = true
-        distanceLabel.hidden = true
-        paceLabel.hidden = true
-        
+        locationManager.requestAlwaysAuthorization()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer.invalidate()
     }
     
     @IBAction func startAction(sender: UIButton)
     {
        switchButtonsWithStartState(false)
         
+       seconds = 0.0
+        distance = 0.0
+        locations.removeAll(keepCapacity: false)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "eachSecond:", userInfo: nil, repeats: true)
         
-        timeLabel.hidden = false
-        distanceLabel.hidden = false
-        paceLabel.hidden = false
+        startLocation()
     }
     
     
@@ -76,7 +105,7 @@ class IBNewRunViewController: UIViewController {
         
         //Add Save-Action
         actionSheetController.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { (actionSheetController) -> Void in
-            print("haSave ...")
+            print("Save ...")
         }))
         
         //Add Discard-Action
@@ -109,6 +138,28 @@ class IBNewRunViewController: UIViewController {
 
         }
     }
+
+    func startLocation() {
+        locationManager.startUpdatingLocation()
+    }
+    
+    func eachSecond(timer : NSTimer) {
+        seconds++
+        
+        let secondsQuantity = HKQuantity(unit: HKUnit.secondUnit(), doubleValue: seconds)
+        
+        timeLabel.text = "Time: " + secondsQuantity.description
+        let distanceQuantity = HKQuantity(unit: HKUnit.meterUnit(), doubleValue: distance)
+        distanceLabel.text = "Distance: " + distanceQuantity.description
+        
+        let paceUnit = HKUnit.secondUnit().unitDividedByUnit(HKUnit.meterUnit())
+        let paceQuantity = HKQuantity(unit: paceUnit, doubleValue: seconds/distance)
+        paceLabel.text = "Pace: " + paceQuantity.description
+        
+        
+    }
+    
+    
     
     // MARK: - Navigation
 
@@ -122,4 +173,9 @@ class IBNewRunViewController: UIViewController {
     }
     
 
+}
+
+// MARK: - CLLocationManagerDelegate
+extension IBNewRunViewController : CLLocationManagerDelegate {
+    
 }
