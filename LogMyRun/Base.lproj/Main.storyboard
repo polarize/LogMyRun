@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LogMyRun" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="IBHomeViewController" customModule="LogMyRun" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -109,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="435" y="1089"/>
         </scene>
-        <!--View Controller-->
+        <!--New Run View Controller-->
         <scene sceneID="Toy-yV-fR0">
             <objects>
-                <viewController id="d2c-Fa-C2K" customClass="ViewController" customModule="LogMyRun" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="d2c-Fa-C2K" customClass="IBNewRunViewController" customModule="LogMyRun" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TCQ-cn-51d"/>
                         <viewControllerLayoutGuide type="bottom" id="4rE-JX-ALC"/>
@@ -124,15 +124,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r4H-Mf-BYq" userLabel="Buttons View">
                                 <rect key="frame" x="20" y="194" width="560" height="211"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hky-oX-llO">
-                                        <rect key="frame" x="10" y="111" width="540" height="90"/>
-                                        <animations/>
-                                        <color key="backgroundColor" red="1" green="0.31327859279999998" blue="0.32860185920000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <state key="normal" title="STOP">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sig-Sa-fCg">
                                         <rect key="frame" x="10" y="11" width="540" height="90"/>
                                         <animations/>
@@ -144,6 +135,21 @@
                                         <state key="normal" title="START">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="startAction:" destination="d2c-Fa-C2K" eventType="touchUpInside" id="pOp-Dg-wRu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hky-oX-llO">
+                                        <rect key="frame" x="10" y="111" width="540" height="90"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="1" green="0.31327859279999998" blue="0.32860185920000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <state key="normal" title="STOP">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="stopAction:" destination="d2c-Fa-C2K" eventType="touchUpInside" id="8QD-B5-8rk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -250,6 +256,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="eCR-6a-aHz"/>
                     <connections>
+                        <outlet property="distanceLabel" destination="cnY-M6-kZH" id="ahZ-vL-fIe"/>
+                        <outlet property="paceLabel" destination="d1h-jZ-0RN" id="HMt-Lb-qcX"/>
+                        <outlet property="startButton" destination="sig-Sa-fCg" id="fbg-2k-Fvu"/>
+                        <outlet property="stopButton" destination="Hky-oX-llO" id="oex-cf-1vJ"/>
+                        <outlet property="timeLabel" destination="tpT-Ue-lrO" id="eCh-Vn-O5D"/>
                         <segue destination="j9J-U2-zaR" kind="show" identifier="ShowRunDetail" id="oAE-Xf-b67"/>
                     </connections>
                 </viewController>
@@ -282,14 +293,14 @@
                                             <rect key="frame" x="96" y="8" width="434" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Detail Detail Detail Detail Detail Detail Detail Detail Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqh-aq-Gjr">
                                             <rect key="frame" x="96" y="67" width="434" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -311,10 +322,10 @@
             </objects>
             <point key="canvasLocation" x="2055" y="1215"/>
         </scene>
-        <!--View Controller-->
+        <!--Run Detail View Controller-->
         <scene sceneID="OKy-ug-USy">
             <objects>
-                <viewController id="j9J-U2-zaR" customClass="ViewController" customModule="LogMyRun" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="j9J-U2-zaR" customClass="IBRunDetailViewController" customModule="LogMyRun" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mYa-QA-8zU"/>
                         <viewControllerLayoutGuide type="bottom" id="XpD-W9-sNY"/>
@@ -451,6 +462,13 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="4UL-yU-3sX"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="qvU-gd-j2g" id="IHw-lR-et8"/>
+                        <outlet property="distanceLabel" destination="GqT-3B-WP0" id="R0m-Tw-lF9"/>
+                        <outlet property="mapView" destination="Ut0-UI-9JT" id="CF6-7G-we5"/>
+                        <outlet property="paceLabel" destination="2nW-06-GnQ" id="D3X-va-PNA"/>
+                        <outlet property="timeLabel" destination="ZLf-8Z-vTj" id="Fdy-rK-s2T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3k6-eL-1xB" sceneMemberID="firstResponder"/>
             </objects>

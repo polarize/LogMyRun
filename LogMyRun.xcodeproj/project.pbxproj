@@ -7,10 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C20EA5561B5AB5A100B3A820 /* IBNewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20EA5551B5AB5A100B3A820 /* IBNewRunViewController.swift */; };
+		C20EA5581B5AB66000B3A820 /* IBRunDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20EA5571B5AB66000B3A820 /* IBRunDetailViewController.swift */; };
 		C24CD8B21B5AB11E00E695D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C24CD8B11B5AB11E00E695D7 /* CoreLocation.framework */; };
 		C24CD8B41B5AB14800E695D7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C24CD8B31B5AB14800E695D7 /* MapKit.framework */; };
+		C24CD8B61B5AB41100E695D7 /* IBHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24CD8B51B5AB41100E695D7 /* IBHomeViewController.swift */; };
+		C272EFD81B5ACEE7001A4375 /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EFD41B5ACEE7001A4375 /* Run+CoreDataProperties.swift */; };
+		C272EFD91B5ACEE7001A4375 /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EFD41B5ACEE7001A4375 /* Run+CoreDataProperties.swift */; };
+		C272EFDA1B5ACEE7001A4375 /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EFD51B5ACEE7001A4375 /* Run.swift */; };
+		C272EFDB1B5ACEE7001A4375 /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EFD51B5ACEE7001A4375 /* Run.swift */; };
+		C272EFDC1B5ACEE7001A4375 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EFD61B5ACEE7001A4375 /* Location+CoreDataProperties.swift */; };
+		C272EFDD1B5ACEE7001A4375 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EFD61B5ACEE7001A4375 /* Location+CoreDataProperties.swift */; };
+		C272EFDE1B5ACEE7001A4375 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EFD71B5ACEE7001A4375 /* Location.swift */; };
+		C272EFDF1B5ACEE7001A4375 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EFD71B5ACEE7001A4375 /* Location.swift */; };
 		C2ED7D1F1B5A97E8003E9A81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ED7D1E1B5A97E8003E9A81 /* AppDelegate.swift */; };
-		C2ED7D211B5A97E8003E9A81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ED7D201B5A97E8003E9A81 /* ViewController.swift */; };
 		C2ED7D241B5A97E8003E9A81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2ED7D221B5A97E8003E9A81 /* Main.storyboard */; };
 		C2ED7D271B5A97E8003E9A81 /* LogMyRun.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2ED7D251B5A97E8003E9A81 /* LogMyRun.xcdatamodeld */; };
 		C2ED7D291B5A97E8003E9A81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2ED7D281B5A97E8003E9A81 /* Assets.xcassets */; };
@@ -37,11 +47,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C20EA5551B5AB5A100B3A820 /* IBNewRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBNewRunViewController.swift; sourceTree = "<group>"; };
+		C20EA5571B5AB66000B3A820 /* IBRunDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBRunDetailViewController.swift; sourceTree = "<group>"; };
 		C24CD8B11B5AB11E00E695D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C24CD8B31B5AB14800E695D7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C24CD8B51B5AB41100E695D7 /* IBHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBHomeViewController.swift; sourceTree = "<group>"; };
+		C272EFD41B5ACEE7001A4375 /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Run+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C272EFD51B5ACEE7001A4375 /* Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
+		C272EFD61B5ACEE7001A4375 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C272EFD71B5ACEE7001A4375 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		C2ED7D1B1B5A97E8003E9A81 /* LogMyRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogMyRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ED7D1E1B5A97E8003E9A81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C2ED7D201B5A97E8003E9A81 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C2ED7D231B5A97E8003E9A81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C2ED7D261B5A97E8003E9A81 /* LogMyRun.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LogMyRun.xcdatamodel; sourceTree = "<group>"; };
 		C2ED7D281B5A97E8003E9A81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,6 +98,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C20EA5591B5ACD7800B3A820 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C272EFD41B5ACEE7001A4375 /* Run+CoreDataProperties.swift */,
+				C272EFD51B5ACEE7001A4375 /* Run.swift */,
+				C272EFD61B5ACEE7001A4375 /* Location+CoreDataProperties.swift */,
+				C272EFD71B5ACEE7001A4375 /* Location.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C24CD8B71B5AB41C00E695D7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C24CD8B51B5AB41100E695D7 /* IBHomeViewController.swift */,
+				C20EA5551B5AB5A100B3A820 /* IBNewRunViewController.swift */,
+				C20EA5571B5AB66000B3A820 /* IBRunDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		C2ED7D121B5A97E8003E9A81 = {
 			isa = PBXGroup;
 			children = (
@@ -107,8 +144,9 @@
 		C2ED7D1D1B5A97E8003E9A81 /* LogMyRun */ = {
 			isa = PBXGroup;
 			children = (
+				C20EA5591B5ACD7800B3A820 /* Model */,
 				C2ED7D1E1B5A97E8003E9A81 /* AppDelegate.swift */,
-				C2ED7D201B5A97E8003E9A81 /* ViewController.swift */,
+				C24CD8B71B5AB41C00E695D7 /* Controller */,
 				C2ED7D221B5A97E8003E9A81 /* Main.storyboard */,
 				C2ED7D281B5A97E8003E9A81 /* Assets.xcassets */,
 				C2ED7D2A1B5A97E8003E9A81 /* LaunchScreen.storyboard */,
@@ -198,6 +236,8 @@
 		C2ED7D131B5A97E8003E9A81 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = IB;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = codemysource;
 				TargetAttributes = {
@@ -266,8 +306,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2ED7D211B5A97E8003E9A81 /* ViewController.swift in Sources */,
+				C272EFDC1B5ACEE7001A4375 /* Location+CoreDataProperties.swift in Sources */,
+				C20EA5561B5AB5A100B3A820 /* IBNewRunViewController.swift in Sources */,
+				C24CD8B61B5AB41100E695D7 /* IBHomeViewController.swift in Sources */,
+				C20EA5581B5AB66000B3A820 /* IBRunDetailViewController.swift in Sources */,
+				C272EFDE1B5ACEE7001A4375 /* Location.swift in Sources */,
+				C272EFD81B5ACEE7001A4375 /* Run+CoreDataProperties.swift in Sources */,
 				C2ED7D271B5A97E8003E9A81 /* LogMyRun.xcdatamodeld in Sources */,
+				C272EFDA1B5ACEE7001A4375 /* Run.swift in Sources */,
 				C2ED7D1F1B5A97E8003E9A81 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,7 +322,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C272EFDD1B5ACEE7001A4375 /* Location+CoreDataProperties.swift in Sources */,
 				C2ED7D371B5A97E8003E9A81 /* LogMyRunTests.swift in Sources */,
+				C272EFDF1B5ACEE7001A4375 /* Location.swift in Sources */,
+				C272EFDB1B5ACEE7001A4375 /* Run.swift in Sources */,
+				C272EFD91B5ACEE7001A4375 /* Run+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,10 +460,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = LogMyRun/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codemysource.LogMyRun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -421,10 +474,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = LogMyRun/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codemysource.LogMyRun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
