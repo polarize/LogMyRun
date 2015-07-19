@@ -65,7 +65,10 @@ class IBRunDetailViewController: UIViewController {
             mapView.region = mapRegion()
             
             //Make the lines on the map
-            mapView.addOverlay(polyline())
+//            mapView.addOverlay(polyline())
+            let colorSegments = IBMulticolorPolylineSegment.colorSegments(forLocations: run.locations?.array as! [Location])
+            mapView.addOverlays(colorSegments)
+            
         }else
         {
             //No location were found
@@ -113,13 +116,14 @@ class IBRunDetailViewController: UIViewController {
     }
     
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
-//        if !overlay.isKindOfClass(MKPolyline) {
+        if !overlay.isKindOfClass(IBMulticolorPolylineSegment) {
 //            return nil
-//        }
+            print("not IBMulticolorPolylineSegment")
+        }
         
-        let polyline = overlay as! MKPolyline
+        let polyline = overlay as! IBMulticolorPolylineSegment
         let renderer = MKPolylineRenderer(polyline: polyline)
-        renderer.strokeColor = UIColor.orangeColor()
+        renderer.strokeColor = polyline.color
         renderer.lineWidth = 3
         return renderer
     }
