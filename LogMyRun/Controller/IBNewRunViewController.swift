@@ -106,6 +106,8 @@ class IBNewRunViewController: UIViewController {
         //Add Save-Action
         actionSheetController.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { (actionSheetController) -> Void in
             print("Save ...")
+            self.saveRun()
+            self.performSegueWithIdentifier("ShowRunDetail", sender: nil)
         }))
         
         //Add Discard-Action
@@ -138,7 +140,7 @@ class IBNewRunViewController: UIViewController {
 
         }
     }
-
+   // MARK: - Location Handler
     func startLocation() {
         locationManager.startUpdatingLocation()
     }
@@ -148,18 +150,66 @@ class IBNewRunViewController: UIViewController {
         
         let secondsQuantity = HKQuantity(unit: HKUnit.secondUnit(), doubleValue: seconds)
         
-        timeLabel.text = "Time: " + secondsQuantity.description
+        timeLabel.text = secondsQuantity.description
         let distanceQuantity = HKQuantity(unit: HKUnit.meterUnit(), doubleValue: distance)
-        distanceLabel.text = "Distance: " + distanceQuantity.description
+        distanceLabel.text = distanceQuantity.description
         
         let paceUnit = HKUnit.secondUnit().unitDividedByUnit(HKUnit.meterUnit())
         let paceQuantity = HKQuantity(unit: paceUnit, doubleValue: seconds/distance)
-        paceLabel.text = "Pace: " + paceQuantity.description
+        paceLabel.text = paceQuantity.description
         
         
     }
     
+     // MARK: - Start log the run
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        for location in locations as [CLLocation] {
+            if location.horizontalAccuracy < 20 {
+                //Update distance
+                if self.locations.count > 0
+                {
+                    distance += location.distanceFromLocation(self.locations.last!)
+                }
+                
+                //save location
+                self.locations.append(location)
+            }
+        }
+    }
     
+    // MARK: - Save the run
+    
+    func saveRun()
+    {
+        let savedRun = NSEntityDescription.insertNewObjectForEntityForName("Run", inManagedObjectContext: managedObjectContext!) as! Run
+        savedRun.distance = distance
+        savedRun.duration = seconds
+        savedRun.timestamp = NSDate()
+        
+        var savedLocations = [Location]()
+        for location in locations {
+            let savedLocation = NSEntityDescription.insertNewObjectForEntityForName("Location", inManagedObjectContext: managedObjectContext!) as! Location
+            savedLocation.timestamp = location.timestamp
+            savedLocation.latitude = location.coordinate.latitude
+            savedLocation.longitude = location.coordinate.longitude
+            savedLocations.append(savedLocation)
+        }
+        savedRun.locations = NSOrderedSet(array: savedLocations)
+        run = savedRun
+        
+        //handle errors
+//        var error : NSError?
+//        let success = managedObjectContext!.save()
+        
+        do {
+            try managedObjectContext!.save()
+        } catch {
+            print("Could not save the run!")
+        }
+        
+        
+        
+    }
     
     // MARK: - Navigation
 

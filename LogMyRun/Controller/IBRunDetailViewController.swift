@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import HealthKit
 
 
 class IBRunDetailViewController: UIViewController {
@@ -25,6 +26,7 @@ class IBRunDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        configureView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +35,10 @@ class IBRunDetailViewController: UIViewController {
     }
     
 
+    func configureView()
+    {
+        
+    }
     /*
     // MARK: - Navigation
 
