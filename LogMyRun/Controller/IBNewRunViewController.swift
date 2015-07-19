@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import CoreLocation
 import HealthKit
+import MapKit
 
 
 class IBNewRunViewController: UIViewController {
@@ -24,6 +25,7 @@ class IBNewRunViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     
+    @IBOutlet weak var mapView: MKMapView!
     
     var seconds = 0.0
     var distance = 0.0
@@ -105,14 +107,14 @@ class IBNewRunViewController: UIViewController {
         
         //Add Save-Action
         actionSheetController.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { (actionSheetController) -> Void in
-            print("Save ...")
             self.saveRun()
             self.performSegueWithIdentifier("ShowRunDetail", sender: nil)
         }))
         
         //Add Discard-Action
         actionSheetController.addAction(UIAlertAction(title: "Discard", style: UIAlertActionStyle.Default, handler: { (actionSheetController) -> Void in
-            print("Discard ...")
+
+            self.stopLocation()
         }))
         
         //present actionSheetController
@@ -145,6 +147,18 @@ class IBNewRunViewController: UIViewController {
         locationManager.startUpdatingLocation()
     }
     
+    func stopLocation() {
+        locationManager.stopUpdatingLocation()
+        seconds = 0.0
+        distance = 0.0
+        locations.removeAll(keepCapacity: false)
+        timer.invalidate()
+        switchButtonsWithStartState(true)
+        mapView.removeOverlays(mapView.overlays)
+        
+
+        
+    }
     func eachSecond(timer : NSTimer) {
         seconds++
         
@@ -164,11 +178,22 @@ class IBNewRunViewController: UIViewController {
      // MARK: - Start log the run
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         for location in locations as [CLLocation] {
-            if location.horizontalAccuracy < 20 {
+            let howRecent = location.timestamp.timeIntervalSinceNow
+            
+            
+            if abs(howRecent) < 10 && location.horizontalAccuracy < 20 {
                 //Update distance
                 if self.locations.count > 0
                 {
                     distance += location.distanceFromLocation(self.locations.last!)
+                    
+                    var coords = [CLLocationCoordinate2D]()
+                    coords.append(self.locations.last!.coordinate)
+                    coords.append(location.coordinate)
+                    
+                    let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500, 500)
+                    mapView.setRegion(region, animated: true)
+                    mapView.addOverlay(MKPolyline(coordinates: &coords, count: coords.count))
                 }
                 
                 //save location
@@ -228,4 +253,15 @@ class IBNewRunViewController: UIViewController {
 // MARK: - CLLocationManagerDelegate
 extension IBNewRunViewController : CLLocationManagerDelegate {
     
+}
+
+extension IBNewRunViewController : MKMapViewDelegate {
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+
+        let polyline = overlay as! MKPolyline
+        let renderer = MKPolylineRenderer(polyline: polyline)
+        renderer.strokeColor = UIColor.orangeColor()
+        renderer.lineWidth = 3
+        return renderer
+    }
 }

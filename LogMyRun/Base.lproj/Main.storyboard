@@ -194,7 +194,7 @@
                                         <rect key="frame" x="0.0" y="56.5" width="544" height="296"/>
                                         <animations/>
                                         <connections>
-                                            <outlet property="delegate" destination="j9J-U2-zaR" id="AxW-Rk-c0W"/>
+                                            <outlet property="delegate" destination="d2c-Fa-C2K" id="vBg-tP-4vx"/>
                                         </connections>
                                     </mapView>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sig-Sa-fCg">
@@ -240,6 +240,7 @@
                     <navigationItem key="navigationItem" id="eCR-6a-aHz"/>
                     <connections>
                         <outlet property="distanceLabel" destination="cnY-M6-kZH" id="ahZ-vL-fIe"/>
+                        <outlet property="mapView" destination="GOf-wB-hpu" id="yGk-XP-7GT"/>
                         <outlet property="paceLabel" destination="d1h-jZ-0RN" id="HMt-Lb-qcX"/>
                         <outlet property="startButton" destination="sig-Sa-fCg" id="fbg-2k-Fvu"/>
                         <outlet property="stopButton" destination="Hky-oX-llO" id="oex-cf-1vJ"/>
