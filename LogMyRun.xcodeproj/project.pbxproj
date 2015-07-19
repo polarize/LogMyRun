@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C20EA5561B5AB5A100B3A820 /* IBNewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20EA5551B5AB5A100B3A820 /* IBNewRunViewController.swift */; };
 		C20EA5581B5AB66000B3A820 /* IBRunDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20EA5571B5AB66000B3A820 /* IBRunDetailViewController.swift */; };
+		C23D616E1B5BFBB00018C89A /* IBMulticolorPolylineSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23D616D1B5BFBB00018C89A /* IBMulticolorPolylineSegment.swift */; };
 		C24CD8B21B5AB11E00E695D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C24CD8B11B5AB11E00E695D7 /* CoreLocation.framework */; };
 		C24CD8B41B5AB14800E695D7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C24CD8B31B5AB14800E695D7 /* MapKit.framework */; };
 		C24CD8B61B5AB41100E695D7 /* IBHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24CD8B51B5AB41100E695D7 /* IBHomeViewController.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		C20EA5551B5AB5A100B3A820 /* IBNewRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBNewRunViewController.swift; sourceTree = "<group>"; };
 		C20EA5571B5AB66000B3A820 /* IBRunDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBRunDetailViewController.swift; sourceTree = "<group>"; };
+		C23D616D1B5BFBB00018C89A /* IBMulticolorPolylineSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBMulticolorPolylineSegment.swift; sourceTree = "<group>"; };
 		C24CD8B11B5AB11E00E695D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C24CD8B31B5AB14800E695D7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C24CD8B51B5AB41100E695D7 /* IBHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBHomeViewController.swift; sourceTree = "<group>"; };
@@ -109,12 +111,26 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C23D616C1B5BFB420018C89A /* Supported Files */ = {
+			isa = PBXGroup;
+			children = (
+				C2ED7D1E1B5A97E8003E9A81 /* AppDelegate.swift */,
+				C2ED7D221B5A97E8003E9A81 /* Main.storyboard */,
+				C2ED7D281B5A97E8003E9A81 /* Assets.xcassets */,
+				C2ED7D2A1B5A97E8003E9A81 /* LaunchScreen.storyboard */,
+				C2ED7D2D1B5A97E8003E9A81 /* Info.plist */,
+				C2ED7D251B5A97E8003E9A81 /* LogMyRun.xcdatamodeld */,
+			);
+			name = "Supported Files";
+			sourceTree = "<group>";
+		};
 		C24CD8B71B5AB41C00E695D7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				C24CD8B51B5AB41100E695D7 /* IBHomeViewController.swift */,
 				C20EA5551B5AB5A100B3A820 /* IBNewRunViewController.swift */,
 				C20EA5571B5AB66000B3A820 /* IBRunDetailViewController.swift */,
+				C23D616D1B5BFBB00018C89A /* IBMulticolorPolylineSegment.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -145,13 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				C20EA5591B5ACD7800B3A820 /* Model */,
-				C2ED7D1E1B5A97E8003E9A81 /* AppDelegate.swift */,
 				C24CD8B71B5AB41C00E695D7 /* Controller */,
-				C2ED7D221B5A97E8003E9A81 /* Main.storyboard */,
-				C2ED7D281B5A97E8003E9A81 /* Assets.xcassets */,
-				C2ED7D2A1B5A97E8003E9A81 /* LaunchScreen.storyboard */,
-				C2ED7D2D1B5A97E8003E9A81 /* Info.plist */,
-				C2ED7D251B5A97E8003E9A81 /* LogMyRun.xcdatamodeld */,
+				C23D616C1B5BFB420018C89A /* Supported Files */,
 			);
 			path = LogMyRun;
 			sourceTree = "<group>";
@@ -311,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C23D616E1B5BFBB00018C89A /* IBMulticolorPolylineSegment.swift in Sources */,
 				C272EFDC1B5ACEE7001A4375 /* Location+CoreDataProperties.swift in Sources */,
 				C20EA5561B5AB5A100B3A820 /* IBNewRunViewController.swift in Sources */,
 				C24CD8B61B5AB41100E695D7 /* IBHomeViewController.swift in Sources */,

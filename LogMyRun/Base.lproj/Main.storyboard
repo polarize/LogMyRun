@@ -423,6 +423,9 @@
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ut0-UI-9JT">
                                         <rect key="frame" x="8" y="8" width="544" height="370"/>
                                         <animations/>
+                                        <connections>
+                                            <outlet property="delegate" destination="j9J-U2-zaR" id="Qp5-c9-nUh"/>
+                                        </connections>
                                     </mapView>
                                 </subviews>
                                 <animations/>
